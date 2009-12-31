@@ -1,6 +1,6 @@
 after "deploy:update", "deploy:google_closure_compiler:install"
 
-namespace :deploy
+namespace :deploy do
   namespace :google_closure_compiler do
     task :create_compiler_dir do
       run "mkdir -p #{shared_path}/closure-compiler"
