@@ -45,7 +45,7 @@ namespace :google_closure_compiler do
         end
 
         puts 'Unpacking Closure...'
-        rm_rf exdir
+        rm_rf "#{exdir}/*" if File.exists?(exdir)
         `unzip #{zipfile} -d #{exdir}`
         rm_f zipfile
 
