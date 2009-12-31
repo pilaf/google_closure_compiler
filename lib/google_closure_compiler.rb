@@ -53,7 +53,7 @@ module GoogleClosureCompiler
 
   # By default try to find the Java executable path using `which`.
   # Fallback to plain 'java' if nothing is returned
-  DEFAULT_JAVA_PATH = [`which java`.chomp, 'java'].reject(&:blank?).first.freeze
+  DEFAULT_JAVA_PATH = [`which java 2> /dev/null`.chomp, 'java'].reject(&:blank?).first.freeze
 
   class << self
     attr_writer :compilation_level, :java_path, :compiler_application_path
