@@ -1,0 +1,33 @@
+=== Installing the Java Compiler
+
+You can install the Closure Compiler JAR file with the following rake task:
+
+  rake google_closure_compiler:compiler:install
+
+That will install the compiler under:
+
+  vendor/closure-compiler
+
+Alternatively you can download it manually from Google's servers:
+
+  http://closure-compiler.googlecode.com/files/compiler-latest.zip
+
+...in which case you'll have to unzip it and tell the plugin where to look for
+the JAR file manually (see below).
+
+=== Configuration
+
+The plugin will try to do a good job of finding the Java executable and Closure
+compiler for you, but in case you need to manually specify where to find them,
+you can override the defaults by creating an initializer under your
+config/initializers directory.
+
+Additionally you can specify the compilation level (options are :whitespace,
+:simple or :advanced).
+
+  # config/initializers/google_closure_compiler.rb.
+  GoogleClosureCompiler.configure do |config|
+    config.compiler_application_path = '/path/to/compiler.jar'
+    config.java_path = '/path/to/java'
+    config.compilation_level = :simple
+  end
